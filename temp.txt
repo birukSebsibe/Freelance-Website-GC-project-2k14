@@ -1,0 +1,26 @@
+List the jobs
+
+<div class="container">
+            <table class="table">
+                <tbody>
+                    @foreach($jobs as $job)
+                    <tr href="#hello">
+                        <div class="row gy-4">
+                            <div class="col-lg-15 ">
+                                <div class="service-box green">
+                                    <i class="ri-discuss-line icon"></i>
+                                    <h3>{{$job->title}}</h3>
+                                    <p>{{$job->description}}</p>
+                                    <p>{{$job->required_level}}</p>
+                                    <p>{{$job->created_at}}</p>
+                                    @if ($job->status == 1)
+                                    <p>Status: Active</p>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
