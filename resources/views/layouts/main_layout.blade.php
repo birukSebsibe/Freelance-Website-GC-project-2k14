@@ -42,7 +42,7 @@
         
 
      
-        <i class="bi bi-list mobile-nav-toggle"></i>
+        {{-- <i class="bi bi-list mobile-nav-toggle"></i> --}}
         @yield('navbar')
 
         

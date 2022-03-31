@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Freelancer\FreelancerController;
+use App\Http\Controllers\Client\ClientController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -66,7 +67,25 @@ Route::prefix('freelancer')->name('freelancer.')->group(function(){
     Route::middleware(['auth:freelancer','PreventBackHistory'])->group(function(){
          //Route::view('/home','dashboard.freelancer.home')->name('home');
          Route::post('logout',[FreelancerController::class,'logout'])->name('logout');
-         Route::get('/home' ,'App\Http\Controllers\Freelancer\FreelancerController@index');
+         Route::get('/home',[FreelancerController::class,'index'])->name('home');
+    });
+
+});
+
+
+Route::prefix('client')->name('client.')->group(function(){
+
+    Route::middleware(['guest:client','PreventBackHistory'])->group(function(){
+         Route::view('/login','dashboard.client.login')->name('login');
+         Route::view('/register','dashboard.client.register')->name('register');
+         Route::post('/create',[ClientController::class,'create'])->name('create');
+         Route::post('/check',[ClientController::class,'check'])->name('check');
+    });
+
+    Route::middleware(['auth:client','PreventBackHistory'])->group(function(){
+         //Route::view('/home','dashboard.client.home')->name('home');
+         Route::post('logout',[ClientController::class,'logout'])->name('logout');
+         Route::get('/home',[ClientController::class,'index'])->name('home');
     });
 
 });

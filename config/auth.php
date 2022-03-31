@@ -28,6 +28,11 @@ return [
         'model'=>App\Models\Freelancer::class,
      ],
 
+     'client'=>[
+        'driver'=>'eloquent',
+        'model'=>App\Models\Client::class,
+     ],
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards
@@ -64,6 +69,11 @@ return [
          'freelancer'=>[
             'driver'=>'session',
             'provider'=>'freelancers',
+         ],
+
+         'client'=>[
+            'driver'=>'session',
+            'provider'=>'clients',
          ],
     ],
 
@@ -103,6 +113,11 @@ return [
             'driver'=>'eloquent',
             'model'=>App\Models\Freelancer::class,
          ],
+
+         'clients'=>[
+            'driver'=>'eloquent',
+            'model'=>App\Models\Client::class,
+         ],
     ],
 
     /*
@@ -135,6 +150,11 @@ return [
         'freelancers'=>[
             'driver'=>'eloquent',
             'model'=>App\Models\Freelancer::class,
+        ],
+
+        'clients'=>[
+            'driver'=>'eloquent',
+            'model'=>App\Models\Client::class,
         ]
     ],
 

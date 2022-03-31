@@ -25,6 +25,9 @@ class Authenticate extends Middleware
             if($request->routeIs('freelancer.*')){
                 return route('freelancer.login');
             }
+            if($request->routeIs('client.*')){
+                return route('client.login');
+            }
             return route('user.login');
         }
     }

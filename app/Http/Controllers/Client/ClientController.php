@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers\Client;
 
+use App\Models\Job;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
+use App\Models\Client;
+use Illuminate\Support\Facades\Auth;
 
 class ClientController extends Controller
 {
@@ -14,7 +18,7 @@ class ClientController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.client.home');
     }
 
     /**
@@ -22,9 +26,27 @@ class ClientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        //Validate inputs
+        $request->validate([
+            'name'=>'required',
+            'email'=>'required|email|unique:clients,email',
+            'password'=>'required|min:5|max:30',
+            'cpassword'=>'required|min:5|max:30|same:password'
+         ]);
+ 
+         $client = new client();
+         $client->name = $request->name;
+         $client->email = $request->email;
+         $client->password = \Hash::make($request->password);
+         $save = $client->save();
+ 
+         if( $save ){
+             return redirect()->back()->with('success','You are now registered successfully as Client');
+         }else{
+             return redirect()->back()->with('failed','Something went Wrong, failed to register');
+         }
     }
 
     /**
@@ -81,5 +103,28 @@ class ClientController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    function check(Request $request){
+        //Validate Inputs
+        $request->validate([
+           'email'=>'required|email|exists:clients,email',
+           'password'=>'required|min:5|max:30'
+        ],[
+            'email.exists'=>'This email is not exists in clients table'
+        ]);
+  
+        $creds = $request->only('email','password');
+  
+        if( Auth::guard('client')->attempt($creds) ){
+            return redirect()->route('client.home');
+        }else{
+            return redirect()->route('client.login')->with('fail','Incorrect Credentials');
+        }
+    }
+  
+    function logout(){
+        Auth::guard('client')->logout();
+        return redirect('/');
     }
 }

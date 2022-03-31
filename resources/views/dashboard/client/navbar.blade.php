@@ -9,7 +9,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-                <li><a class="nav-link scrollto" href="{{url('freelancer/home')}}">Freelancers</a></li>
+                <li><a class="nav-link scrollto" href="{{url('freelancer/home')}}">Jobs</a></li>
                 <li><a class="nav-link scrollto" href="#Find Work">My Jobs</a></li>
                 <li><a class="nav-link scrollto" href="#Why Mesob">Chat room</a></li>
                 <li><a class="getstarted scrollto" href="#Why Mesob">Notification</a></li>

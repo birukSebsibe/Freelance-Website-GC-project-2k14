@@ -24,3 +24,6 @@ List the jobs
                 </tbody>
             </table>
         </div>
+
+
+Middleware, authenticate => Change the route that redirects to users.login

@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Favicons -->
-    <link rel="icon" href="{{asset('front_end/assets/img/mesob3.png')}}" type="image/png" >
-
-
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Mesob | Freelancer Login</title>
+
+    
+     <!-- Favicons -->
+     <link rel="icon" href="{{asset('front_end/assets/img/mesob3.png')}}" type="image/png" >
+
+
+    <title>Mesob | Client Login</title>
     <link rel="stylesheet" href="{{ asset('bootstrap.min.css') }}">
 </head>
 <body>
     <div class="container">
         <div class="row">
             <div class="col-md-4 offset-md-4" style="margin-top: 45px">
-                 <h4>Freelancer Login</h4><hr>
-                 <form action="{{ route('freelancer.check') }}" method="post">
+                 <h2>Client Login</h2><hr>
+                 <form action="{{ route('client.check') }}" method="post">
                     @if (Session::get('fail'))
                         <div class="alert alert-danger">
                             {{ Session::get('fail') }}
@@ -38,7 +39,7 @@
                          <button type="submit" class="btn btn-primary">Login</button>
                      </div>
                      <br>
-                     <a href="{{ route('freelancer.register') }}">Create new Account</a>
+                     <a href="{{ route('client.register') }}">Create new Account</a>
                  </form>
             </div>
         </div>

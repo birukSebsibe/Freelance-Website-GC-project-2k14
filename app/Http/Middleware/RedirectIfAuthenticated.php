@@ -33,6 +33,9 @@ class RedirectIfAuthenticated
                 if($guard === 'freelancer'){
                     return redirect()->route('freelancer.home');
                 }
+                if($guard === 'client'){
+                    return redirect()->route('client.home');
+                }
                 return redirect()->route('user.home');
                 // return redirect(RouteServiceProvider::HOME);
             }

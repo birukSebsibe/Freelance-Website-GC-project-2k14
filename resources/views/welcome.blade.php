@@ -1,5 +1,5 @@
 @extends('layouts/main_layout')
-@section('navbar')
+@include('layouts.main_navbar')
 @section('content')
 @section('title', 'Mesob')
 <!-- ======= Hero Section ======= -->

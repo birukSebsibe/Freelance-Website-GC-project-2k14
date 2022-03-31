@@ -8,17 +8,16 @@
      <!-- Favicons -->
      <link rel="icon" href="{{asset('front_end/assets/img/mesob3.png')}}" type="image/png" >
 
-
-    <title>Mesob | Freelancer Register</title>
+     
+    <title>Mesob | Client Register</title>
     <link rel="stylesheet" href="{{ asset('bootstrap.min.css') }}">
-    @include('layouts.stylesheet')
 </head>
 <body>
     <div class="container">
         <div class="row">
             <div class="col-md-4 offset-md-4" style="margin-top: 45px">
-                 <h2>Freelancer Register</h2><hr>
-                 <form action="{{ route('freelancer.create') }}" method="post">
+                 <h2>Client Register</h2><hr>
+                 <form action="{{ route('client.create') }}" method="post">
                     @if (Session::get('success'))
                         <div class="alert alert-success">
                             {{ Session::get('success') }}
@@ -55,7 +54,7 @@
                          <button type="submit" class="btn btn-primary">Register</button>
                      </div>
                      <br>
-                     <a href="{{ route('freelancer.login') }}">I already have an account, Login now</a>
+                     <a href="{{ route('client.login') }}">I already have an account, Login now</a>
                  </form>
             </div>
         </div>
