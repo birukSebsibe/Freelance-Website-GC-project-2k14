@@ -22,7 +22,6 @@ return [
        'model'=>App\Models\Admin::class,
     ],
     
-
      'freelancer'=>[
         'driver'=>'eloquent',
         'model'=>App\Models\Freelancer::class,

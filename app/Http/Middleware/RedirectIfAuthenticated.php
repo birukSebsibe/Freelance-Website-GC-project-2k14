@@ -27,9 +27,6 @@ class RedirectIfAuthenticated
                 if($guard === 'admin'){
                     return redirect()->route('admin.home');
                 }
-                if($guard === 'doctor'){
-                    return redirect()->route('doctor.home');
-                }
                 if($guard === 'freelancer'){
                     return redirect()->route('freelancer.home');
                 }
