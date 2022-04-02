@@ -20,9 +20,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/about', function () {
+    return view('public.about');
+});
+
+Route::get('contact', function () {
+    return view('public.contact');
+});
+
+Route::get('/testimonial', function () {
+    return view('public.testimonial');
+});
+
 Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('user')->name('user.')->group(function(){
   

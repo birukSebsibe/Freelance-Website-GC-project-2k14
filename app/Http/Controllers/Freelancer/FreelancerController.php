@@ -17,8 +17,8 @@ class FreelancerController extends Controller
      */
     public function index()
     {
-        $jobs = Job::paginate(15);
-        return view('dashboard.freelancer.home', ['jobs'=>$jobs]);
+        
+        return view('dashboard.freelancer.home');
 
     }
 
@@ -113,7 +113,7 @@ class FreelancerController extends Controller
          'email'=>'required|email|exists:freelancers,email',
          'password'=>'required|min:5|max:30'
       ],[
-          'email.exists'=>'This email is not exists in freelancers table'
+          'email.exists'=>'Incorrect Credentials'
       ]);
 
       $creds = $request->only('email','password');
@@ -127,6 +127,6 @@ class FreelancerController extends Controller
 
   function logout(){
       Auth::guard('freelancer')->logout();
-      return redirect('/');
+      return redirect('freelancer/login');
   }
 }

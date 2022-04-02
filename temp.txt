@@ -27,3 +27,95 @@ List the jobs
 
 
 Middleware, authenticate => Change the route that redirects to users.login
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Navbar
+    * freelancer navbar 
+        * jobs  
+            - Browse and list down jobs that are posted by the client 
+        * Search
+            - Get to search specific keyword for jobs which are posted
+        * My Jobs 
+            - Browse and list jobs that they have taken and also are currently working on
+        * Portfolios
+            - They get to visit their own Portfolios which they have made for a specific talent or skill
+        * Report
+            - They get to get full report on their activities
+        * Their name along with picture
+            * Profile
+                -  Edit profile 
+            * Logout 
+        
+
+    * Client navbar 
+        * Talents 
+            - Browse and list down talents in accordance with their own need of talent (They can invite these freelancers to work on something)
+        * Search
+            - Get to search specific keyword for talents which are available 
+        * My Jobs
+            - They will get to see their current jobs which are undergoing on proposal submition or being done 
+        * Report 
+        * Their name along with picture
+            * Profile
+                - Edit profile
+            * Logout 
+
+    * Main navbar
+        * Find Talent 
+            * Lists down the categories which are found in database
+        * Find Client 
+            * The type of work a freelancer can engage in 
+        * About
+        * Contact 
+        * Log in 
+        * Register
+
+################################################    
+    
+Page break down 
+    * Nav bar 
+        (Same navbar but different content (same nav tags and properties, but different buttons)) 
+    * Body 
+        @section('content)
+    * Footer 
+        @section('footer)
+
+################################################
+
+Main layout
+    <navbar>
+        properties
+            yield('navbar)
+        end properties
+    </navbar> 
+
+    @yield('content')
+
+    <footer>
+        Contents
+    </footer>
+
+################################################
+
+welcome layout 
+    @extends('main_layout')
+
+    @section('navbar')
+        content of the navbar
+    @endsection
+
+    @section('body')
+        content of the Page
+    @endsection

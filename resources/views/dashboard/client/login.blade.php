@@ -1,48 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+@extends('auth.passwords.login')
 
-    
-     <!-- Favicons -->
-     <link rel="icon" href="{{asset('front_end/assets/img/mesob3.png')}}" type="image/png" >
+@section('title', 'Client | Login')
+@section('login_content')
 
+<form class="login100-form validate-form" action="{{ route('client.check') }}" method="post">
+	<span class="login100-form-title">
+		Client Login
+	</span>
 
-    <title>Mesob | Client Login</title>
-    <link rel="stylesheet" href="{{ asset('bootstrap.min.css') }}">
-</head>
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 offset-md-4" style="margin-top: 45px">
-                 <h2>Client Login</h2><hr>
-                 <form action="{{ route('client.check') }}" method="post">
-                    @if (Session::get('fail'))
-                        <div class="alert alert-danger">
-                            {{ Session::get('fail') }}
-                        </div>
-                    @endif
-                    @csrf
-                     <div class="form-group">
-                         <label for="email">Email</label>
-                         <input type="text" class="form-control" name="email" placeholder="Enter email address" value="{{ old('email') }}">
-                         <span class="text-danger">@error('email') {{ $message }} @enderror</span>
-                     </div>
-                     <div class="form-group">
-                         <label for="password">Password</label>
-                         <input type="password" class="form-control" name="password" placeholder="Enter password" value="{{ old('password') }}">
-                         <span class="text-danger">@error('password') {{ $message }} @enderror</span>
-                     </div>
-                     <div class="form-group">
-                         <button type="submit" class="btn btn-primary">Login</button>
-                     </div>
-                     <br>
-                     <a href="{{ route('client.register') }}">Create new Account</a>
-                 </form>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+	@if (Session::get('fail'))
+	<div class="alert alert-danger">
+		{{ Session::get('fail') }}
+	</div>
+	@endif
+	@csrf
+	<div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+		<input class="input100" type="text" name="email" placeholder="Email" value="{{ old('email') }}">
+		<span class="focus-input100"></span>
+		<span class="symbol-input100">
+			<i class="fa fa-envelope" aria-hidden="true"></i>
+		</span>
+		<span class="text-danger">@error('email') {{ $message }} @enderror</span>
+	</div>
+
+	<div class="wrap-input100 validate-input" data-validate="Password is required">
+		<input class="input100" type="password" name="password" placeholder="Password" value="{{ old('password') }}">
+		<span class="focus-input100"></span>
+		<span class="symbol-input100">
+			<i class="fa fa-lock" aria-hidden="true"></i>
+		</span>
+		<span class="text-danger">@error('password') {{ $message }} @enderror</span>
+	</div>
+
+	<div class="container-login100-form-btn">
+		<button class="login100-form-btn" type="submit">
+			Login
+		</button>
+	</div>
+
+	<div class="text-center p-t-12">
+		<span class="txt1">
+			Forgot
+		</span>
+		<a class="txt2" href="#">
+			Username / Password?
+		</a>
+	</div>
+
+	<div class="text-center p-t-136">
+		<a class="txt2" href="#">
+			Create your Account
+			<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+		</a>
+	</div>
+</form>
+@endsection

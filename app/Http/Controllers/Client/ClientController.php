@@ -111,7 +111,7 @@ class ClientController extends Controller
            'email'=>'required|email|exists:clients,email',
            'password'=>'required|min:5|max:30'
         ],[
-            'email.exists'=>'This email is not exists in clients table'
+            'email.exists'=>'Incorrect Credentials'
         ]);
   
         $creds = $request->only('email','password');

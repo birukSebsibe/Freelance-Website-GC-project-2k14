@@ -1,641 +1,738 @@
-@extends('layouts/main_layout')
-@include('layouts.main_navbar')
-@section('content')
+@extends('layouts.main_layout')
+
 @section('title', 'Mesob')
-<!-- ======= Hero Section ======= -->
-<section id="hero" class="hero d-flex align-items-center">
-
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6 d-flex flex-column justify-content-center">
-        <h1 data-aos="fade-up">Find your best Partner</h1>
-        <h2 data-aos="fade-up" data-aos-delay="400">Forget the old rules. You can have the best people.
-          Right now. Right here.</h2>
-        <div data-aos="fade-up" data-aos-delay="600">
-          <div class="text-center text-lg-start">
-            <a href="{{url('freelancer/login')}}"
-              class="mx-3 btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
-              <span>Find Work</span> </a>
-
-            <a href="{{url('client/login')}}"
-              class="btn-get-start scrollto d-inline-flex align-items-center justify-content-center align-self-center">
-              <span>Find Talent</span>
-            </a>
-          </div>
+@section('navbar_content')
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ms-auto p-4 p-lg-0">
+            <a href="{{url('/')}}" class="nav-item nav-link active">Home</a>
+            <a href="{{url('about')}}" class="nav-item nav-link">About</a>
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Jobs</a>
+                <div class="dropdown-menu rounded-0 m-0">
+                    <a href="job-list.html" class="dropdown-item"> <span><i class="fas fa-list"></i></span> Job List    </a>
+                    <a href="job-detail.html" class="dropdown-item"><span><i class="fas fa-info"></i></span> Job Detail  </a>
+                </div>
+            </div>
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Login</a>
+                <div class="dropdown-menu rounded-0 m-0">
+                    <a href="{{url('freelancer/login')}}" class="dropdown-item">Freelancer</a>
+                    <a href="{{url('client/login')}}" class="dropdown-item">Client</a>
+                </div>
+            </div>
+            <a href="{{url('contact')}}" class="nav-item nav-link">Contact</a>
         </div>
-      </div>
-      <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
-        <img src={{"front_end/assets/img/blog-recent-5.png"}} class="img-fluid" alt="">
-      </div>
+        <a href="" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Post A Job<i
+                class="fa fa-arrow-right ms-3"></i></a>
     </div>
-  </div>
+@endsection
 
+@section('body_content')
 
-</section><!-- End Hero -->
-<!-- ======= Clients Section ======= -->
-<section id="clients" class="clients">
-
-  <div class="container" data-aos="fade-up">
-
-    <header class="section-header">
-      <p>Trusted by</p>
-    </header>
-
-    <div class="clients-slider swiper">
-      <div class="swiper-wrapper align-items-center">
-        <div class="swiper-slide"><img src={{"front_end/assets/img/clients/client-1.png"}} class="img-fluid" alt="">
+<!-- Carousel Start -->
+<div class="container-fluid p-0">
+    <div class="owl-carousel header-carousel position-relative">
+        <div class="owl-carousel-item position-relative">
+            <img class="img-fluid" src="{{asset('front_end/img/carousel-1.jpg')}}" alt="">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+                style="background: rgba(43, 57, 64, .5);">
+                <div class="container">
+                    <div class="row justify-content-start">
+                        <div class="col-10 col-lg-8">
+                            <h1 class="display-3 text-white animated slideInDown mb-4">Find The Perfect Job That You
+                                Deserved</h1>
+                            <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at
+                                sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
+                            <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Search A
+                                Job</a>
+                            <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Find A Talent</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="swiper-slide"><img src={{"front_end/assets/img/clients/client-2.png"}} class="img-fluid" alt="">
+        <div class="owl-carousel-item position-relative">
+            <img class="img-fluid" src="{{asset('front_end/img/carousel-2.jpg')}}" alt="">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
+                style="background: rgba(43, 57, 64, .5);">
+                <div class="container">
+                    <div class="row justify-content-start">
+                        <div class="col-10 col-lg-8">
+                            <h1 class="display-3 text-white animated slideInDown mb-4">Find The Best Startup Job That
+                                Fit You</h1>
+                            <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at
+                                sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>
+                            <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Search A
+                                Job</a>
+                            <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Find A Talent</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="swiper-slide"><img src={{"front_end/assets/img/clients/client-3.png"}} class="img-fluid" alt="">
-        </div>
-        <div class="swiper-slide"><img src={{"front_end/assets/img/clients/client-4.png"}} class="img-fluid" alt="">
-        </div>
-        <div class="swiper-slide"><img src={{"front_end/assets/img/clients/client-5.png"}} class="img-fluid" alt="">
-        </div>
-        <div class="swiper-slide"><img src={{"front_end/assets/img/clients/client-6.png"}} class="img-fluid" alt="">
-        </div>
-        <div class="swiper-slide"><img src={{"front_end/assets/img/clients/client-7.png"}} class="img-fluid" alt="">
-        </div>
-        <div class="swiper-slide"><img src={{"front_end/assets/img/clients/client-8.png"}} class="img-fluid" alt="">
-        </div>
-      </div>
-      <div class="swiper-pagination"></div>
     </div>
-  </div>
-
-</section><!-- End Clients Section -->
-
-<main id="main">
-  <!-- ======= About Section ======= -->
-  <section id="about" class="about">
-
-    <div class="container" data-aos="fade-up">
-      <div class="row gx-0">
+</div>
+<!-- Carousel End -->
 
 
-      </div>
+<!-- Search Start -->
+<div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
+    <div class="container">
+        <div class="row g-2">
+            <div class="col-md-10">
+                <div class="row g-2">
+                    <div class="col-md-4">
+                        <input type="text" class="form-control border-0" placeholder="Keyword" />
+                    </div>
+                    <div class="col-md-4">
+                        <select class="form-select border-0">
+                            <option selected>Category</option>
+                            <option value="1">Category 1</option>
+                            <option value="2">Category 2</option>
+                            <option value="3">Category 3</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <select class="form-select border-0">
+                            <option selected>Location</option>
+                            <option value="1">Location 1</option>
+                            <option value="2">Location 2</option>
+                            <option value="3">Location 3</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-dark border-0 w-100">Search</button>
+            </div>
+        </div>
     </div>
+</div>
+<!-- Search End -->
 
-  </section><!-- End About Section -->
 
-  <!-- ======= Values Section ======= -->
-  <section id="values" class="values">
-
-    <div class="container" data-aos="fade-up">
-
-      <header class="section-header">
-        <h2>For Clients</h2>
-        <p>Find talent your way</p>
-      </header>
-
-      <div class="row">
-
-        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-          <div class="box">
-            <img src={{"front_end/assets/img/0x0.jpg"}} class="img-fluid" alt="">
-            <h3>Post a Job and hire a pro</h3>
-          </div>
+<!-- Category Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Explore By Category</h1>
+        <div class="row g-4">
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                <a class="cat-item rounded p-4" href="">
+                    <i class="fa fa-3x fa-mail-bulk text-primary mb-4"></i>
+                    <h6 class="mb-3">Marketing</h6>
+                    <p class="mb-0">123 Vacancy</p>
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                <a class="cat-item rounded p-4" href="">
+                    <i class="fa fa-3x fa-headset text-primary mb-4"></i>
+                    <h6 class="mb-3">Customer Service</h6>
+                    <p class="mb-0">123 Vacancy</p>
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                <a class="cat-item rounded p-4" href="">
+                    <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
+                    <h6 class="mb-3">Human Resource</h6>
+                    <p class="mb-0">123 Vacancy</p>
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                <a class="cat-item rounded p-4" href="">
+                    <i class="fa fa-3x fa-tasks text-primary mb-4"></i>
+                    <h6 class="mb-3">Project Management</h6>
+                    <p class="mb-0">123 Vacancy</p>
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                <a class="cat-item rounded p-4" href="">
+                    <i class="fa fa-3x fa-chart-line text-primary mb-4"></i>
+                    <h6 class="mb-3">Business Development</h6>
+                    <p class="mb-0">123 Vacancy</p>
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                <a class="cat-item rounded p-4" href="">
+                    <i class="fa fa-3x fa-hands-helping text-primary mb-4"></i>
+                    <h6 class="mb-3">Sales & Communication</h6>
+                    <p class="mb-0">123 Vacancy</p>
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                <a class="cat-item rounded p-4" href="">
+                    <i class="fa fa-3x fa-book-reader text-primary mb-4"></i>
+                    <h6 class="mb-3">Teaching & Education</h6>
+                    <p class="mb-0">123 Vacancy</p>
+                </a>
+            </div>
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                <a class="cat-item rounded p-4" href="">
+                    <i class="fa fa-3x fa-drafting-compass text-primary mb-4"></i>
+                    <h6 class="mb-3">Design & Creative</h6>
+                    <p class="mb-0">123 Vacancy</p>
+                </a>
+            </div>
         </div>
-
-        <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
-          <div class="box">
-            <img src={{"front_end/assets/img/b.jpg"}} class="img-fluid" alt="">
-            <h3>Browse and Buy Projects</h3>
-          </div>
-        </div>
-
-        <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="600">
-          <div class="box">
-            <img src={{"front_end/assets/img/chose.jpg"}} class="img-fluid" alt="">
-            <h3>Choose talent you like</h3>
-          </div>
-        </div>
-
-      </div>
-
     </div>
+</div>
+<!-- Category End -->
 
-  </section><!-- End Values Section -->
 
-  <!-- ======= Counts Section ======= -->
-  <section id="counts" class="counts">
-    <div class="container" data-aos="fade-up">
-
-      <div class="row gy-4">
-
-        <div class="col-lg-3 col-md-6">
-          <div class="count-box">
-            <i class="bi bi-emoji-smile"></i>
-            <div>
-              <span data-purecounter-start="0" data-purecounter-end="10232" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>Happy Clients</p>
+<!-- About Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                <div class="row g-0 about-bg rounded overflow-hidden">
+                    <div class="col-6 text-start">
+                        <img class="img-fluid w-100" src="{{asset('front_end/img/about-1.jpg')}}">
+                    </div>
+                    <div class="col-6 text-start">
+                        <img class="img-fluid" src="{{asset('front_end/img/about-2.jpg')}}"
+                            style="width: 85%; margin-top: 15%;">
+                    </div>
+                    <div class="col-6 text-end">
+                        <img class="img-fluid" src="{{asset('front_end/img/about-3.jpg')}}" style="width: 85%;">
+                    </div>
+                    <div class="col-6 text-end">
+                        <img class="img-fluid w-100" src="{{asset('front_end/img/about-4.jpg')}}">
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6">
-          <div class="count-box">
-            <i class="bi bi-journal-richtext" style="color: #ee6c20;"></i>
-            <div>
-              <span data-purecounter-start="0" data-purecounter-end="5021" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>Projects</p>
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                <h1 class="mb-4">We Help To Get The Best Job And Find A Talent</h1>
+                <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et
+                    eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                <p><i class="fa fa-check text-primary me-3"></i>Tempor erat elitr rebum at clita</p>
+                <p><i class="fa fa-check text-primary me-3"></i>Aliqu diam amet diam et eos</p>
+                <p><i class="fa fa-check text-primary me-3"></i>Clita duo justo magna dolore erat amet</p>
+                <a class="btn btn-primary py-3 px-5 mt-3" href="">Read More</a>
             </div>
-          </div>
         </div>
-
-        <div class="col-lg-3 col-md-6">
-          <div class="count-box">
-            <i class="bi bi-headset" style="color: #15be56;"></i>
-            <div>
-              <span data-purecounter-start="0" data-purecounter-end="113463" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>Working Hours</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6">
-          <div class="count-box">
-            <i class="bi bi-people" style="color: #bb0852;"></i>
-            <div>
-              <span data-purecounter-start="0" data-purecounter-end="10050" data-purecounter-duration="1"
-                class="purecounter"></span>
-              <p>Freelancers</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
     </div>
-  </section><!-- End Counts Section -->
+</div>
+<!-- About End -->
 
-  <!-- ======= Features Section ======= -->
-  <section id="features" class="features">
 
-    <div class="container" data-aos="fade-up">
-
-      <header class="section-header">
-        <h2>Features</h2>
-        <p>Why businesses turn to Mesob</p>
-      </header>
-
-      <div class="row">
-
-        <div class="col-lg-6">
-          <img src={{"front_end/assets/img/i.jpg"}} class="img-fluid" alt="">
+<!-- Jobs Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Job Listing</h1>
+        <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.3s">
+            <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
+                <li class="nav-item">
+                    <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3 active" data-bs-toggle="pill"
+                        href="#tab-1">
+                        <h6 class="mt-n1 mb-0">Featured</h6>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="d-flex align-items-center text-start mx-3 pb-3" data-bs-toggle="pill" href="#tab-2">
+                        <h6 class="mt-n1 mb-0">Full Time</h6>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill" href="#tab-3">
+                        <h6 class="mt-n1 mb-0">Part Time</h6>
+                    </a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="tab-1" class="tab-pane fade show p-0 active">
+                    <div class="job-item p-4 mb-4">
+                        <div class="row g-4">
+                            <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                <img class="flex-shrink-0 img-fluid border rounded"
+                                    src="{{asset('front_end/img/com-logo-1.jpg')}}" alt=""
+                                    style="width: 80px; height: 80px;">
+                                <div class="text-start ps-4">
+                                    <h5 class="mb-3">Software Engineer</h5>
+                                    <span class="text-truncate me-3"><i
+                                            class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                    <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full
+                                        Time</span>
+                                    <span class="text-truncate me-0"><i
+                                            class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                </div>
+                            </div>
+                            <div
+                                class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                <div class="d-flex mb-3">
+                                    <a class="btn btn-light btn-square me-3" href=""><i
+                                            class="far fa-heart text-primary"></i></a>
+                                    <a class="btn btn-primary" href="">Apply Now</a>
+                                </div>
+                                <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date
+                                    Line: 01 Jan, 2045</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-item p-4 mb-4">
+                        <div class="row g-4">
+                            <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                <img class="flex-shrink-0 img-fluid border rounded"
+                                    src="{{asset('front_end/img/com-logo-2.jpg')}}" alt=""
+                                    style="width: 80px; height: 80px;">
+                                <div class="text-start ps-4">
+                                    <h5 class="mb-3">Marketing Manager</h5>
+                                    <span class="text-truncate me-3"><i
+                                            class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                    <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full
+                                        Time</span>
+                                    <span class="text-truncate me-0"><i
+                                            class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                </div>
+                            </div>
+                            <div
+                                class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                <div class="d-flex mb-3">
+                                    <a class="btn btn-light btn-square me-3" href=""><i
+                                            class="far fa-heart text-primary"></i></a>
+                                    <a class="btn btn-primary" href="">Apply Now</a>
+                                </div>
+                                <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date
+                                    Line: 01 Jan, 2045</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-item p-4 mb-4">
+                        <div class="row g-4">
+                            <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                <img class="flex-shrink-0 img-fluid border rounded"
+                                    src="{{asset('front_end/img/com-logo-3.jpg')}}" alt=""
+                                    style="width: 80px; height: 80px;">
+                                <div class="text-start ps-4">
+                                    <h5 class="mb-3">Product Designer</h5>
+                                    <span class="text-truncate me-3"><i
+                                            class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                    <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full
+                                        Time</span>
+                                    <span class="text-truncate me-0"><i
+                                            class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                </div>
+                            </div>
+                            <div
+                                class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                <div class="d-flex mb-3">
+                                    <a class="btn btn-light btn-square me-3" href=""><i
+                                            class="far fa-heart text-primary"></i></a>
+                                    <a class="btn btn-primary" href="">Apply Now</a>
+                                </div>
+                                <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date
+                                    Line: 01 Jan, 2045</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-item p-4 mb-4">
+                        <div class="row g-4">
+                            <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                <img class="flex-shrink-0 img-fluid border rounded"
+                                    src="{{asset('front_end/img/com-logo-4.jpg')}}" alt=""
+                                    style="width: 80px; height: 80px;">
+                                <div class="text-start ps-4">
+                                    <h5 class="mb-3">Creative Director</h5>
+                                    <span class="text-truncate me-3"><i
+                                            class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                    <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full
+                                        Time</span>
+                                    <span class="text-truncate me-0"><i
+                                            class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                </div>
+                            </div>
+                            <div
+                                class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                <div class="d-flex mb-3">
+                                    <a class="btn btn-light btn-square me-3" href=""><i
+                                            class="far fa-heart text-primary"></i></a>
+                                    <a class="btn btn-primary" href="">Apply Now</a>
+                                </div>
+                                <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date
+                                    Line: 01 Jan, 2045</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-item p-4 mb-4">
+                        <div class="row g-4">
+                            <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                <img class="flex-shrink-0 img-fluid border rounded"
+                                    src="{{asset('front_end/img/com-logo-5.jpg')}}" alt=""
+                                    style="width: 80px; height: 80px;">
+                                <div class="text-start ps-4">
+                                    <h5 class="mb-3">Wordpress Developer</h5>
+                                    <span class="text-truncate me-3"><i
+                                            class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                    <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full
+                                        Time</span>
+                                    <span class="text-truncate me-0"><i
+                                            class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                </div>
+                            </div>
+                            <div
+                                class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                <div class="d-flex mb-3">
+                                    <a class="btn btn-light btn-square me-3" href=""><i
+                                            class="far fa-heart text-primary"></i></a>
+                                    <a class="btn btn-primary" href="">Apply Now</a>
+                                </div>
+                                <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date
+                                    Line: 01 Jan, 2045</small>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary py-3 px-5" href="">Browse More Jobs</a>
+                </div>
+                <div id="tab-2" class="tab-pane fade show p-0">
+                    <div class="job-item p-4 mb-4">
+                        <div class="row g-4">
+                            <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                <img class="flex-shrink-0 img-fluid border rounded"
+                                    src="{{asset('front_end/img/com-logo-1.jpg')}}" alt=""
+                                    style="width: 80px; height: 80px;">
+                                <div class="text-start ps-4">
+                                    <h5 class="mb-3">Software Engineer</h5>
+                                    <span class="text-truncate me-3"><i
+                                            class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                    <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full
+                                        Time</span>
+                                    <span class="text-truncate me-0"><i
+                                            class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                </div>
+                            </div>
+                            <div
+                                class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                <div class="d-flex mb-3">
+                                    <a class="btn btn-light btn-square me-3" href=""><i
+                                            class="far fa-heart text-primary"></i></a>
+                                    <a class="btn btn-primary" href="">Apply Now</a>
+                                </div>
+                                <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date
+                                    Line: 01 Jan, 2045</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-item p-4 mb-4">
+                        <div class="row g-4">
+                            <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                <img class="flex-shrink-0 img-fluid border rounded"
+                                    src="{{asset('front_end/img/com-logo-2.jpg')}}" alt=""
+                                    style="width: 80px; height: 80px;">
+                                <div class="text-start ps-4">
+                                    <h5 class="mb-3">Marketing Manager</h5>
+                                    <span class="text-truncate me-3"><i
+                                            class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                    <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full
+                                        Time</span>
+                                    <span class="text-truncate me-0"><i
+                                            class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                </div>
+                            </div>
+                            <div
+                                class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                <div class="d-flex mb-3">
+                                    <a class="btn btn-light btn-square me-3" href=""><i
+                                            class="far fa-heart text-primary"></i></a>
+                                    <a class="btn btn-primary" href="">Apply Now</a>
+                                </div>
+                                <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date
+                                    Line: 01 Jan, 2045</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-item p-4 mb-4">
+                        <div class="row g-4">
+                            <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                <img class="flex-shrink-0 img-fluid border rounded"
+                                    src="{{asset('front_end/img/com-logo-3.jpg')}}" alt=""
+                                    style="width: 80px; height: 80px;">
+                                <div class="text-start ps-4">
+                                    <h5 class="mb-3">Product Designer</h5>
+                                    <span class="text-truncate me-3"><i
+                                            class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                    <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full
+                                        Time</span>
+                                    <span class="text-truncate me-0"><i
+                                            class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                </div>
+                            </div>
+                            <div
+                                class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                <div class="d-flex mb-3">
+                                    <a class="btn btn-light btn-square me-3" href=""><i
+                                            class="far fa-heart text-primary"></i></a>
+                                    <a class="btn btn-primary" href="">Apply Now</a>
+                                </div>
+                                <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date
+                                    Line: 01 Jan, 2045</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-item p-4 mb-4">
+                        <div class="row g-4">
+                            <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                <img class="flex-shrink-0 img-fluid border rounded"
+                                    src="{{asset('front_end/img/com-logo-4.jpg')}}" alt=""
+                                    style="width: 80px; height: 80px;">
+                                <div class="text-start ps-4">
+                                    <h5 class="mb-3">Creative Director</h5>
+                                    <span class="text-truncate me-3"><i
+                                            class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                    <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full
+                                        Time</span>
+                                    <span class="text-truncate me-0"><i
+                                            class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                </div>
+                            </div>
+                            <div
+                                class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                <div class="d-flex mb-3">
+                                    <a class="btn btn-light btn-square me-3" href=""><i
+                                            class="far fa-heart text-primary"></i></a>
+                                    <a class="btn btn-primary" href="">Apply Now</a>
+                                </div>
+                                <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date
+                                    Line: 01 Jan, 2045</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-item p-4 mb-4">
+                        <div class="row g-4">
+                            <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                <img class="flex-shrink-0 img-fluid border rounded"
+                                    src="{{asset('front_end/img/com-logo-5.jpg')}}" alt=""
+                                    style="width: 80px; height: 80px;">
+                                <div class="text-start ps-4">
+                                    <h5 class="mb-3">Wordpress Developer</h5>
+                                    <span class="text-truncate me-3"><i
+                                            class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                    <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full
+                                        Time</span>
+                                    <span class="text-truncate me-0"><i
+                                            class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                </div>
+                            </div>
+                            <div
+                                class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                <div class="d-flex mb-3">
+                                    <a class="btn btn-light btn-square me-3" href=""><i
+                                            class="far fa-heart text-primary"></i></a>
+                                    <a class="btn btn-primary" href="">Apply Now</a>
+                                </div>
+                                <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date
+                                    Line: 01 Jan, 2045</small>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary py-3 px-5" href="">Browse More Jobs</a>
+                </div>
+                <div id="tab-3" class="tab-pane fade show p-0">
+                    <div class="job-item p-4 mb-4">
+                        <div class="row g-4">
+                            <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                <img class="flex-shrink-0 img-fluid border rounded"
+                                    src="{{asset('front_end/img/com-logo-1.jpg')}}" alt=""
+                                    style="width: 80px; height: 80px;">
+                                <div class="text-start ps-4">
+                                    <h5 class="mb-3">Software Engineer</h5>
+                                    <span class="text-truncate me-3"><i
+                                            class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                    <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full
+                                        Time</span>
+                                    <span class="text-truncate me-0"><i
+                                            class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                </div>
+                            </div>
+                            <div
+                                class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                <div class="d-flex mb-3">
+                                    <a class="btn btn-light btn-square me-3" href=""><i
+                                            class="far fa-heart text-primary"></i></a>
+                                    <a class="btn btn-primary" href="">Apply Now</a>
+                                </div>
+                                <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date
+                                    Line: 01 Jan, 2045</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-item p-4 mb-4">
+                        <div class="row g-4">
+                            <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                <img class="flex-shrink-0 img-fluid border rounded"
+                                    src="{{asset('front_end/img/com-logo-2.jpg')}}" alt=""
+                                    style="width: 80px; height: 80px;">
+                                <div class="text-start ps-4">
+                                    <h5 class="mb-3">Marketing Manager</h5>
+                                    <span class="text-truncate me-3"><i
+                                            class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                    <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full
+                                        Time</span>
+                                    <span class="text-truncate me-0"><i
+                                            class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                </div>
+                            </div>
+                            <div
+                                class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                <div class="d-flex mb-3">
+                                    <a class="btn btn-light btn-square me-3" href=""><i
+                                            class="far fa-heart text-primary"></i></a>
+                                    <a class="btn btn-primary" href="">Apply Now</a>
+                                </div>
+                                <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date
+                                    Line: 01 Jan, 2045</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-item p-4 mb-4">
+                        <div class="row g-4">
+                            <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                <img class="flex-shrink-0 img-fluid border rounded"
+                                    src="{{asset('front_end/img/com-logo-3.jpg')}}" alt=""
+                                    style="width: 80px; height: 80px;">
+                                <div class="text-start ps-4">
+                                    <h5 class="mb-3">Product Designer</h5>
+                                    <span class="text-truncate me-3"><i
+                                            class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                    <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full
+                                        Time</span>
+                                    <span class="text-truncate me-0"><i
+                                            class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                </div>
+                            </div>
+                            <div
+                                class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                <div class="d-flex mb-3">
+                                    <a class="btn btn-light btn-square me-3" href=""><i
+                                            class="far fa-heart text-primary"></i></a>
+                                    <a class="btn btn-primary" href="">Apply Now</a>
+                                </div>
+                                <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date
+                                    Line: 01 Jan, 2045</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-item p-4 mb-4">
+                        <div class="row g-4">
+                            <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                <img class="flex-shrink-0 img-fluid border rounded"
+                                    src="{{asset('front_end/img/com-logo-4.jpg')}}" alt=""
+                                    style="width: 80px; height: 80px;">
+                                <div class="text-start ps-4">
+                                    <h5 class="mb-3">Creative Director</h5>
+                                    <span class="text-truncate me-3"><i
+                                            class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                    <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full
+                                        Time</span>
+                                    <span class="text-truncate me-0"><i
+                                            class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                </div>
+                            </div>
+                            <div
+                                class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                <div class="d-flex mb-3">
+                                    <a class="btn btn-light btn-square me-3" href=""><i
+                                            class="far fa-heart text-primary"></i></a>
+                                    <a class="btn btn-primary" href="">Apply Now</a>
+                                </div>
+                                <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date
+                                    Line: 01 Jan, 2045</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-item p-4 mb-4">
+                        <div class="row g-4">
+                            <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                <img class="flex-shrink-0 img-fluid border rounded"
+                                    src="{{asset('front_end/img/com-logo-5.jpg')}}" alt=""
+                                    style="width: 80px; height: 80px;">
+                                <div class="text-start ps-4">
+                                    <h5 class="mb-3">Wordpress Developer</h5>
+                                    <span class="text-truncate me-3"><i
+                                            class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                    <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full
+                                        Time</span>
+                                    <span class="text-truncate me-0"><i
+                                            class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                </div>
+                            </div>
+                            <div
+                                class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                <div class="d-flex mb-3">
+                                    <a class="btn btn-light btn-square me-3" href=""><i
+                                            class="far fa-heart text-primary"></i></a>
+                                    <a class="btn btn-primary" href="">Apply Now</a>
+                                </div>
+                                <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date
+                                    Line: 01 Jan, 2045</small>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary py-3 px-5" href="">Browse More Jobs</a>
+                </div>
+            </div>
         </div>
+    </div>
+</div>
+<!-- Jobs End -->
 
-        <div class="col-lg-6 mt-5 mt-lg-0 d-flex">
-          <div class="row align-self-center gy-4">
 
-            <div class="col-md-6" data-aos="zoom-out" data-aos-delay="200">
-              <div class="feature-box d-flex align-items-center">
-                <i class="bi bi-check"></i>
-                <h3>Quality Work</h3>
-              </div>
+<!-- Testimonial Start -->
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <h1 class="text-center mb-5">Our Clients Say!!!</h1>
+        <div class="owl-carousel testimonial-carousel">
+            <div class="testimonial-item bg-light rounded p-4">
+                <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
+                <div class="d-flex align-items-center">
+                    <img class="img-fluid flex-shrink-0 rounded" src="{{asset('front_end/img/testimonial-1.jpg')}}"
+                        style="width: 50px; height: 50px;">
+                    <div class="ps-3">
+                        <h5 class="mb-1">Client Name</h5>
+                        <small>Profession</small>
+                    </div>
+                </div>
             </div>
-
-            <div class="col-md-6" data-aos="zoom-out" data-aos-delay="300">
-              <div class="feature-box d-flex align-items-center">
-                <i class="bi bi-check"></i>
-                <h3>No cost until you hire</h3>
-              </div>
+            <div class="testimonial-item bg-light rounded p-4">
+                <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
+                <div class="d-flex align-items-center">
+                    <img class="img-fluid flex-shrink-0 rounded" src="{{asset('front_end/img/testimonial-2.jpg')}}"
+                        style="width: 50px; height: 50px;">
+                    <div class="ps-3">
+                        <h5 class="mb-1">Client Name</h5>
+                        <small>Profession</small>
+                    </div>
+                </div>
             </div>
-
-            <div class="col-md-6" data-aos="zoom-out" data-aos-delay="400">
-              <div class="feature-box d-flex align-items-center">
-                <i class="bi bi-check"></i>
-                <h3>Safe and Secure </h3>
-              </div>
+            <div class="testimonial-item bg-light rounded p-4">
+                <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
+                <div class="d-flex align-items-center">
+                    <img class="img-fluid flex-shrink-0 rounded" src="{{asset('front_end/img/testimonial-3.jpg')}}"
+                        style="width: 50px; height: 50px;">
+                    <div class="ps-3">
+                        <h5 class="mb-1">Client Name</h5>
+                        <small>Profession</small>
+                    </div>
+                </div>
             </div>
-
-            <div class="col-md-6" data-aos="zoom-out" data-aos-delay="500">
-              <div class="feature-box d-flex align-items-center">
-                <i class="bi bi-check"></i>
-                <h3>Trusted by leading brands</h3>
-              </div>
+            <div class="testimonial-item bg-light rounded p-4">
+                <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
+                <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos labore diam</p>
+                <div class="d-flex align-items-center">
+                    <img class="img-fluid flex-shrink-0 rounded" src="{{asset('front_end/img/testimonial-4.jpg')}}"
+                        style="width: 50px; height: 50px;">
+                    <div class="ps-3">
+                        <h5 class="mb-1">Client Name</h5>
+                        <small>Profession</small>
+                    </div>
+                </div>
             </div>
-
-            <div class="col-md-6" data-aos="zoom-out" data-aos-delay="600">
-              <div class="feature-box d-flex align-items-center">
-                <i class="bi bi-check"></i>
-                <h3>Fast Service</h3>
-              </div>
-            </div>
-
-            <div class="col-md-6" data-aos="zoom-out" data-aos-delay="700">
-              <div class="feature-box d-flex align-items-center">
-                <i class="bi bi-check"></i>
-                <h3>A wide variety of choices</h3>
-              </div>
-            </div>
-
-          </div>
         </div>
-
-      </div> <!-- / row -->
-
-      <!-- ======= Values Section ======= -->
-      <section id="values" class="values">
-
-        <div class="container" data-aos="fade-up">
-
-          <header class="section-header">
-            <h2>For Talent</h2>
-            <p>Find great work</p>
-          </header>
-
-          <div class="row">
-
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-              <div class="box">
-                <img src={{"front_end/assets/img/images (1).jpg"}} class="img-fluid" alt="">
-                <h3>Find opportunities for every stage of your freelance career</h3>
-              </div>
-            </div>
-
-            <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="400">
-              <div class="box">
-                <img src={{"front_end/assets/img/s.png"}} class="img-fluid" alt="">
-                <h3>Control when, where, and how you work</h3>
-              </div>
-            </div>
-
-            <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="600">
-              <div class="box">
-                <img src={{"front_end/assets/img/2.jpg"}} class="img-fluid" alt="">
-                <h3>Explore different ways to earn</h3>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </section><!-- End Values Section -->
-
-      <!-- ======= Services Section ======= -->
-      <section id="services" class="services">
-
-        <div class="container" data-aos="fade-up">
-
-          <header class="section-header">
-            <h2>Services</h2>
-            <p>Browse talent by category</p>
-          </header>
-
-          <div class="row gy-4">
-
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-              <div class="service-box blue">
-                <i class="ri-discuss-line icon"></i>
-                <h3>Design & Creative</h3>
-                <p>Graphic Design</p>
-                <p>Video Design</p>
-                <p>Logo Design</p>
-                <p>Image Editing....</p>
-
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-              <div class="service-box orange">
-                <i class="ri-discuss-line icon"></i>
-                <h3>Sales & Marketing</h3>
-                <p>Social Media Marketing
-                <p>
-                <p>Digital Marketing</p>
-                <p>Public Relations</p>
-                <p>Content Strategy....</p>
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-              <div class="service-box green">
-                <i class="ri-discuss-line icon"></i>
-                <h3>Writing & Translation</h3>
-                <p>Editing & Proofreading</p>
-                <p>Content Writing</p>
-                <p>Technical Writing</p>
-                <p>Writing Tutorials....</p>
-
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-              <div class="service-box red">
-                <i class="ri-discuss-line icon"></i>
-                <h3>Admin & Customer Support</h3>
-                <p>Data Entry</p>
-                <p>Transcription</p>
-                <p>Tech Support</p>
-                <p>IT Support....</p>
-
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-              <div class="service-box purple">
-                <i class="ri-discuss-line icon"></i>
-                <h3>Finance & Accounting</h3>
-                <p>Accounting</p>
-                <p>Recruiting</p>
-                <p>Bookkeeping</p>
-                <p>Business Analysis....</p>
-
-              </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="700">
-              <div class="service-box pink">
-                <i class="ri-discuss-line icon"></i>
-                <h3>Engineering & Architecture</h3>
-                <p>CAD</p>
-                <p>Interior Design</p>
-                <p>Mathematics</p>
-                <p>Chemistry....</p>
-
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </section><!-- End Services Section -->
-
-
-      <!-- ======= Testimonials Section ======= -->
-      <section id="testimonials" class="testimonials">
-
-        <div class="container" data-aos="fade-up">
-
-          <header class="section-header">
-            <h2>Testimonials</h2>
-            <p>What they are saying about us</p>
-          </header>
-
-          <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="200">
-            <div class="swiper-wrapper">
-
-              <div class="swiper-slide">
-                <div class="testimonial-item">
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                      class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                  </div>
-                  <p>
-                    Mesob enables us to differentiate ourselves from our competitors and produce content at higher
-                    caliber.
-                  </p>
-                  <div class="profile mt-auto">
-                    <img src={{"front_end/assets/img/testimonials/testimonials-1.jpg"}} class="testimonial-img" alt="">
-                    <h3>Saul Goodman</h3>
-                    <h4>Nasdaq Ceo &amp; Founder</h4>
-                  </div>
-                </div>
-              </div><!-- End testimonial item -->
-
-              <div class="swiper-slide">
-                <div class="testimonial-item">
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                      class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                  </div>
-                  <p>
-                    One of the advantages of utilizing freelancers is finding talent with different skills quickly as
-                    our needs change.
-                  </p>
-                  <div class="profile mt-auto">
-                    <img src={{"front_end/assets/img/testimonials/testimonials-2.jpg"}} class="testimonial-img" alt="">
-                    <h3>Sara Wilsson</h3>
-                    <h4>Microsoft Designer</h4>
-                  </div>
-                </div>
-              </div><!-- End testimonial item -->
-
-              <div class="swiper-slide">
-                <div class="testimonial-item">
-                  <div class="stars">
-                    <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
-                      class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
-                  </div>
-                  <p>
-                    I don't think business would have grown as fast or as well if not for the freelancers' expertise and
-                    ability to adapt.
-                  </p>
-                  <div class="profile mt-auto">
-                    <img src={{"front_end/assets/img/testimonials/testimonials-3.jpg"}} class="testimonial-img" alt="">
-                    <h3>Jena Karlis</h3>
-                    <h4>Store Owner</h4>
-                  </div>
-                </div>
-              </div><!-- End testimonial item -->
-
-
-
-
-
-            </div>
-            <div class="swiper-pagination"></div>
-          </div>
-
-        </div>
-
-      </section><!-- End Testimonials Section -->
-
-      <!-- ======= Team Section ======= -->
-      <section id="team" class="team">
-
-        <div class="container" data-aos="fade-up">
-
-          <header class="section-header">
-            <h2>Team</h2>
-            <p>Our hard working team</p>
-          </header>
-
-          <div class="row gy-4">
-
-            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-              <div class="member">
-                <div class="member-img">
-                  <img src={{"front_end/assets/img/team/team-1.jpg"}} class="img-fluid" alt="">
-                  <div class="social">
-                    <a href=""><i class="bi bi-twitter"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
-                  </div>
-                </div>
-                <div class="member-info">
-                  <h4>Walter White</h4>
-                  <span>Chief Executive Officer</span>
-                  <p>Velit aut quia fugit et et. Dolorum ea voluptate vel tempore tenetur ipsa quae aut. Ipsum
-                    exercitationem iure minima enim corporis et voluptate.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-              <div class="member">
-                <div class="member-img">
-                  <img src={{"front_end/assets/img/team/team-2.jpg"}} class="img-fluid" alt="">
-                  <div class="social">
-                    <a href=""><i class="bi bi-twitter"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
-                  </div>
-                </div>
-                <div class="member-info">
-                  <h4>Sara Jhonson</h4>
-                  <span>Chief social executive</span>
-                  <p>Velit aut quia fugit et et. Dolorum ea voluptate vel tempore tenetur ipsa quae aut. Ipsum
-                    exercitationem iure minima enim corporis et voluptate.</p>
-                </div>
-              </div>
-            </div>
-
-
-            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-              <div class="member">
-                <div class="member-img">
-                  <img src={{"front_end/assets/img/team/team-3.jpg"}} class="img-fluid" alt="">
-                  <div class="social">
-                    <a href=""><i class="bi bi-twitter"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
-                  </div>
-                </div>
-                <div class="member-info">
-                  <h4>William Anderson</h4>
-                  <span>CTO</span>
-                  <p>Vero omnis enim consequatur. Voluptas consectetur unde qui molestiae deserunt. Voluptates enim aut
-                    architecto porro aspernatur molestiae modi.</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-              <div class="member">
-                <div class="member-img">
-                  <img src={{"front_end/assets/img/team/team-4.jpg"}} class="img-fluid" alt="">
-                  <div class="social">
-                    <a href=""><i class="bi bi-twitter"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
-                  </div>
-                </div>
-                <div class="member-info">
-                  <h4>Amanda Jepson</h4>
-                  <span>Accountant</span>
-                  <p>Rerum voluptate non adipisci animi distinctio et deserunt amet voluptas. Quia aut aliquid
-                    doloremque ut possimus ipsum officia.</p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </section><!-- End Team Section -->
-
-
-
-
-      <!-- ======= Contact Section ======= -->
-      <section id="contact" class="contact">
-
-        <div class="container" data-aos="fade-up">
-
-          <header class="section-header">
-            <h2>Contact</h2>
-            <p>Contact Us</p>
-          </header>
-
-          <div class="row gy-4">
-
-            <div class="col-lg-6">
-
-              <div class="row gy-4">
-                <div class="col-md-6">
-                  <div class="info-box">
-                    <i class="bi bi-geo-alt"></i>
-                    <h3>Address</h3>
-                    <p>A108 Adam Street,<br>New York, NY 535022</p>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="info-box">
-                    <i class="bi bi-telephone"></i>
-                    <h3>Call Us</h3>
-                    <p>+1 5589 55488 55<br>+1 6678 254445 41</p>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="info-box">
-                    <i class="bi bi-envelope"></i>
-                    <h3>Email Us</h3>
-                    <p>info@example.com<br>contact@example.com</p>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="info-box">
-                    <i class="bi bi-clock"></i>
-                    <h3>Open Hours</h3>
-                    <p>Monday - Friday<br>9:00AM - 05:00PM</p>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-            <div class="col-lg-6">
-              <form action="forms/contact.php" method="post" class="php-email-form">
-                <div class="row gy-4">
-
-                  <div class="col-md-6">
-                    <input type="text" name="name" class="form-control" placeholder="Your Name" required>
-                  </div>
-
-                  <div class="col-md-6 ">
-                    <input type="email" class="form-control" name="email" placeholder="Your Email" required>
-                  </div>
-
-                  <div class="col-md-12">
-                    <input type="text" class="form-control" name="subject" placeholder="Subject" required>
-                  </div>
-
-                  <div class="col-md-12">
-                    <textarea class="form-control" name="message" rows="6" placeholder="Message" required></textarea>
-                  </div>
-
-                  <div class="col-md-12 text-center">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                    <button type="submit">Send Message</button>
-                  </div>
-
-                </div>
-              </form>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section><!-- End Contact Section -->
-
-</main><!-- End #main -->
+    </div>
+</div>
+<!-- Testimonial End -->
 
 @endsection
