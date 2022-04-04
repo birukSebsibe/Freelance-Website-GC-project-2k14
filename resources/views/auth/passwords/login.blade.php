@@ -21,6 +21,9 @@
 	@section('body_content')
 	<div class="limiter">
 		<div class="container-xxl py-5">
+			<a href="{{url('/')}}"><span class="login100-form-title">
+				HOMEPAGE
+			</span></a>
 			<div class="wrap-login100">
 				<div class="login100-pic js-tilt" data-tilt>
 					<img src="{{asset('front_end/Log in/images/img-01.png')}}" alt="IMG">

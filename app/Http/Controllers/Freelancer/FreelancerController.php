@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Freelancer;
 use App\Models\Job;
+use App\Models\Proposal;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -17,8 +18,8 @@ class FreelancerController extends Controller
      */
     public function index()
     {
-        
-        return view('dashboard.freelancer.home');
+        $jobs = Job::paginate(4);
+        return view('dashboard.freelancer.home', ['jobs' => $jobs]);
 
     }
 
@@ -113,7 +114,7 @@ class FreelancerController extends Controller
          'email'=>'required|email|exists:freelancers,email',
          'password'=>'required|min:5|max:30'
       ],[
-          'email.exists'=>'Incorrect Credentials'
+          'email.exists'=>'Incorrect Email'
       ]);
 
       $creds = $request->only('email','password');
@@ -129,4 +130,15 @@ class FreelancerController extends Controller
       Auth::guard('freelancer')->logout();
       return redirect('freelancer/login');
   }
+
+  public function apply($id){
+    $job = Job::find($id);
+    return view('dashboard.freelancer.application', ['job' => $job]);
+  }
+
+  public function submit_proposal(){
+    dd(request());
+    }
 }
+
+

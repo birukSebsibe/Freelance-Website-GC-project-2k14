@@ -13,6 +13,7 @@
 		{{ Session::get('fail') }}
 	</div>
 	@endif
+	
 	@csrf
 	<div class="wrap-input100 validate-input form-control @error('email') is-invalid @enderror"
 		data-validate="Valid email is required: ex@abc.xyz">

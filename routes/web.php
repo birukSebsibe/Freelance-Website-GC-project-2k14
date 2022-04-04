@@ -5,6 +5,8 @@ use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Freelancer\FreelancerController;
 use App\Http\Controllers\Client\ClientController;
+use App\Http\Controllers\JobController;
+use App\Http\Controllers\ProposalController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -73,12 +75,16 @@ Route::prefix('freelancer')->name('freelancer.')->group(function(){
          Route::view('/register','dashboard.freelancer.register')->name('register');
          Route::post('/create',[FreelancerController::class,'create'])->name('create');
          Route::post('/check',[FreelancerController::class,'check'])->name('check');
+         
     });
 
     Route::middleware(['auth:freelancer','PreventBackHistory'])->group(function(){
          //Route::view('/home','dashboard.freelancer.home')->name('home');
          Route::post('logout',[FreelancerController::class,'logout'])->name('logout');
          Route::get('/home',[FreelancerController::class,'index'])->name('home');
+         Route::get('job-detail/{id}', [JobController::class, 'showToFreelancer'])->name('job');
+         Route::get('/apply/{id}',[FreelancerController::class,'apply'])->name('apply');
+         Route::post('/submit/{job_id}',[ProposalController::class,'submit'])->name('submit');
     });
 
 });

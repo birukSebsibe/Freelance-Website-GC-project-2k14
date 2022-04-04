@@ -119,3 +119,43 @@ welcome layout
     @section('body')
         content of the Page
     @endsection
+
+
+-> freelancer/home
+        View all jobs 
+
+-> Click on View detail 
+        freelancer/job-detail/{id}
+-> 
+click on apply 
+        freelancer/job-detail/apply/{id}
+-> 
+click on submit
+    freelancer/submit-proposal/{id}
+
+job_id = $job->id
+freelancer_id = Auth::user()-id;
+client_id = $job->$client_id;
+
+
+
+
+
+
+
+
+
+
+$proposal = new proposal();
+       $proposal->client_id = $job->client_id;
+       $proposal->max_payment = $job->max_payment;
+       $proposal->letterToClient = $request->letterToClient;
+       $proposal->experienceDescription = $request->experienceDescription;
+       $save = $proposal->save();
+       if( $save ){
+          //Session::flash('alert-danger', 'No idea');
+          return route('freelancer.home');
+      }else{
+          Session::flash('flash_type', 'alert-success');
+          return route('freelancer.home');
+      }
