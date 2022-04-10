@@ -2,36 +2,7 @@
 
 @section('title', 'Mesob')
 @section('navbar_content')
-
-        <!-- Navbar Start -->
-            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav ms-auto p-4 p-lg-0">
-                    <a href="index.html" class="nav-item nav-link">Jobs</a>
-                    <a href="about.html" class="nav-item nav-link">Search</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">My Jobs</a>
-                        <div class="dropdown-menu rounded-0 m-0">
-                            <a href="job-list.html" class="dropdown-item">Waiting</a>
-                            <a href="job-detail.html" class="dropdown-item">On Progress</a>
-                        </div>
-                    </div>
-                    <a href="index.html" class="nav-item nav-link">Portfolio</a>
-                    <a href="contact.html" class="nav-item nav-link">Report</a>
-                </div>
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Profile</a>
-                    <div class="dropdown-menu rounded-0 m-0">
-                        <a href="job-list.html" class="dropdown-item">Edit Profile</a>
-                        <a class="dropdown-item" href="{{ route('freelancer.logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
-                                     <form action="{{ route('freelancer.logout') }}" id="logout-form" method="post">@csrf</form>
-                    </div>
-                </div>
-            </div>
-      
-        <!-- Navbar End -->
+    @include('dashboard.client.clientNavBar')
 @endsection
 
 <!-- Google Web Fonts -->

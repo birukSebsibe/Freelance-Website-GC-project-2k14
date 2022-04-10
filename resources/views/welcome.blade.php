@@ -23,10 +23,15 @@
                     <a href="{{url('client/login')}}" class="dropdown-item">Client</a>
                 </div>
             </div>
+            <div class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Register as</a>
+                <div class="dropdown-menu rounded-0 m-0">
+                    <a href="{{url('freelancer/register')}}" class="dropdown-item">Freelancer</a>
+                    <a href="{{url('client/register')}}" class="dropdown-item">Client</a>
+                </div>
+            </div>
             <a href="{{url('contact')}}" class="nav-item nav-link">Contact</a>
         </div>
-        <a href="" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Post A Job<i
-                class="fa fa-arrow-right ms-3"></i></a>
     </div>
 @endsection
 

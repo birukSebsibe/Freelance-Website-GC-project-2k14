@@ -18,8 +18,9 @@ class CreateProposalsTable extends Migration
             $table->unsignedBigInteger('client_id');
             $table->unsignedBigInteger('freelancer_id');
             $table->longText('letterToClient');
+            $table->unsignedBigInteger('job_id');
             $table->longText('experienceDescription');
-            $table->integer('min_payment');
+            $table->integer('min_payment')->nullabel();
             $table->integer('max_payment'); //Use this if it is hourly payment
             $table->timestamps();
 

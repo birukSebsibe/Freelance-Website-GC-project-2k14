@@ -125,6 +125,6 @@ class ClientController extends Controller
   
     function logout(){
         Auth::guard('client')->logout();
-        return redirect('/');
+        return redirect('client/login');
     }
 }

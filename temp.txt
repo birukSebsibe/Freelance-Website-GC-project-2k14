@@ -143,19 +143,15 @@ client_id = $job->$client_id;
 
 
 
+Freelancer  
+    Browse jobs 
+    Read details
+    Apply 
 
-
-
-$proposal = new proposal();
-       $proposal->client_id = $job->client_id;
-       $proposal->max_payment = $job->max_payment;
-       $proposal->letterToClient = $request->letterToClient;
-       $proposal->experienceDescription = $request->experienceDescription;
-       $save = $proposal->save();
-       if( $save ){
-          //Session::flash('alert-danger', 'No idea');
-          return route('freelancer.home');
-      }else{
-          Session::flash('flash_type', 'alert-success');
-          return route('freelancer.home');
-      }
+Client 
+    Post a Job  
+    See who applied 
+    Chat with the freelancer 
+    agree on terms 
+    initialize the job 
+    
