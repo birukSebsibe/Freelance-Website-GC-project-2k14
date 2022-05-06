@@ -107,6 +107,7 @@ Route::prefix('client')->name('client.')->group(function(){
          Route::get('job-detail/{id}', [JobController::class, 'showToClient'])->name('job');
          Route::get('editJobTitleDescription/{id}', [JobController::class, 'editMainDescription'])->name('editJobTitleDescription');
          Route::get('/bidding/viewproposals/{id}',[ProposalController::class,'viewProposals'])->name('viewProposals');
+         Route::get('/bidding/proposal-detail/{prop_id}', [ProposalController::class, 'proposalDetail'])->name('proposal-detail');
     });
 
 });

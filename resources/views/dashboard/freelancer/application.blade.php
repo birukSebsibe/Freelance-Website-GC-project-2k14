@@ -29,10 +29,6 @@
                                 <textarea name = "experienceDescription" class="form-control" rows="5" placeholder="Experience"></textarea>
                             </div>
 
-                            <div class="col-12 col-sm-6">
-                                <input type="file" class="form-control bg-white">
-                            </div>
-
                             <div class="col-12">
                                 <button class="btn btn-primary w-100" type="submit">Apply Now</button>
                             </div>

@@ -16,7 +16,6 @@ class JobController extends Controller
     }
 
     public function editMainDescription(Request $request, $job_id){
-        // $job = Job::find($request->id);
          $job = job::find($job_id);
          $job->title = $request->title;
          $job->description = $request->description;

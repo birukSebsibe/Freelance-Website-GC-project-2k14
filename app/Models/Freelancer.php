@@ -40,4 +40,8 @@ class Freelancer extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function proposal(){
+        return $this->hasMany(Proposal::class);
+    }
 }

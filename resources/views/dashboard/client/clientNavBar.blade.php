@@ -10,8 +10,10 @@
         <div class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">My Jobs</a>
             <div class="dropdown-menu rounded-0 m-0">
-                <a href="{{route('client.bidding', 'all')}}" class="dropdown-item">BIDDING</a>
-                <a href="job-detail.html" class="dropdown-item">ON-PROGRESS</a>
+                <a href="{{route('client.bidding', 1)}}" class="dropdown-item">BIDDING</a>
+                <a href="{{route('client.bidding', 2)}}" class="dropdown-item">ON-PROGRESS</a>
+                <a href="{{route('client.bidding', 3)}}" class="dropdown-item">COMPLETED</a>
+                <a href="{{route('client.bidding', 4)}}" class="dropdown-item">CANCELLED</a>
             </div>
         </div>
         <a href="#" class="nav-item nav-link">Portfolio</a>

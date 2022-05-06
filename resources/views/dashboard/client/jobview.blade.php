@@ -115,6 +115,7 @@
                         rebum est ipsum lorem diam. Et lorem magna eirmod est et et sanctus et, kasd clita labore.</p>
                 </div>
             </div>
+            @if($bidding->status)
             <div class="text-center">
                 <div class="col-12">
                     <a class="btn btn-primary" href="/client/bidding/viewproposals/{{$bidding->id}}">View Proposals</a>

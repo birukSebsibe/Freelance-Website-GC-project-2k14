@@ -9,6 +9,7 @@ use App\Models\Freelancer;
 use App\Models\Client;
 use App\Models\Proposal;
 use Auth;
+use Illuminate\Support\Facades\Crypt;
 
 class ProposalController extends Controller
 {
@@ -48,44 +49,44 @@ class ProposalController extends Controller
         // 2 = Taken and on progress
         // 3 = Completed 
         // 4 = Canceled 
-        if ($status == "all") {
+        
+     
+        if (!empty($status)) {
             $biddings = Job::select('*')
                 ->where([
                     ['client_id', '=', Auth::user()->id],
-                ])->Paginate(2);
-        return view('dashboard.client.bidding', ['biddings' => $biddings]);
+                    ['status', '=', $status]
+                ])->Paginate(5);
+                $job_status = [
+                    1=>"Bidding", 2=>"On Progress", 3=>"Completed", 4=>"Cancelled Jobs",
+                ];
+                if (!$biddings->isEmpty()){
+                    return view('dashboard.client.bidding', ['biddings' => $biddings], ['status' => $job_status[$status]]);
+                }else{
+                    Session::flash('message', 'No jobs yet');
+                    Session::flash('alert-class', 'alert-danger');
+                    return view('dashboard.client.bidding', ['biddings' => $biddings], ['status' => $job_status[$status]]);
+                }  
+            
         }
-        // else{
-        //     $biddings = Job::select('*')
-        //         ->where([
-        //             ['client_id', '=', Auth::user()->id],
-        //             ['status', '=', $status]
-        //         ])->Paginate(2);
-        // return view('dashboard.client.bidding', ['biddings' => $biddings]);
-        // }
-
-        
     }
 
     public function viewProposals($job_id){
 
-          $myArray = array();
+          //$myArray = array();
           $freelancer = array();
         $proposals = proposal::select('*')->where([
             ['job_id', '=', $job_id],
-        ])->paginate(3);
-
-        foreach($proposals as $proposal){
-            $freelancer = freelancer::select('*')->where([
-                ['id', '=', $proposal->id]
-            ]); 
-        }
-
-        Session::flash('message', 'Successfully Submitted Proposal !');
-        Session::flash('alert-class', 'alert-success');
+        ])->with('freelancer')->paginate(3);
         return view('dashboard.client.viewProposals', ['proposals' => $proposals]);
     }
-}
+
+    public function proposalDetail($prop_id){
+        
+        $proposal =  Proposal::where('id', $prop_id)->with('freelancer')->first();
+        return view('dashboard.client.proposal-detail', ['proposal' => $proposal]);
+    }
+}   
 
 
 

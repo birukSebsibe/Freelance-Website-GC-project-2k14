@@ -26,6 +26,7 @@
         <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.3s">
             <div class="tab-content">
                 <div id="tab-1" class="tab-pane fade show p-0 active">
+                
                     @forelse ($proposals as $proposal)
                     <div class="proposal-item p-4 mb-4" id="title-div">
                         <div class="row g-4" class="myBox">
@@ -37,8 +38,7 @@
                                     <h5 class="mb-3">{{$proposal->title}}</h5>
                                     <span class="text-truncate me-3"><i
                                             class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
-                                    <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full
-                                        Time</span>
+                                    <span class="text-truncate me-3"><i class="fa fa-address-book text-primary me-2"></i>{{$proposal->freelancer->name}}</span>
                                     <span class="text-truncate me-3"><i
                                             class="fas fa-thermometer-quarter me-2"></i>{{$proposal->required_level}}</span>
                                     <span class="text-truncate me-0"><i
@@ -53,7 +53,8 @@
                                 <div class="d-flex mb-3">
                                     <a class="btn btn-light btn-square me-3" href=""><i
                                             class="far fa-heart text-primary"></i></a>
-                                    <a class="btn btn-primary" href="/freelancer/proposal-detail/{{$proposal->id}}">View
+                                           
+                                    <a class="btn btn-primary" href="{{route('client.proposal-detail', $proposal->id) }}">View
                                         Details</a>
                                 </div>
                                 <small class="text-truncate"><i

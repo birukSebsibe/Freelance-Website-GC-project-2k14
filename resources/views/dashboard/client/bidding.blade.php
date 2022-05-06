@@ -10,10 +10,12 @@
 <!-- Jobs Start -->
 <div class="container-xxl py-5">
     <div class="container">
-        @if(session()->has('message'))
-        <div class="alert alert-success">
-            {{ session()->get('message') }}
-        </div>
+        @if(Session::has('message'))
+        <div class="alert {{ Session::get('alert-class', 'alert-info') }} alert-dismissible fade show" role="alert">
+            <strong>{{ Session::get('message') }}</strong>
+            {{Session::forget('message')}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
         @endif
         <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Job Listing</h1>
         <div class="tab-class text-center wow" data-wow-delay="0.3s">
@@ -21,29 +23,30 @@
                 <li class="nav-item">
                     <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3 active" data-bs-toggle="pill"
                         href="{{route('client.bidding', 'all')}}">
-                        <h6 class="mt-n1 mb-0">All</h6>
+                        <h6 class="mt-n1 mb-0">{{$status}}</h6>
                     </a>
                 </li>
-                <li class="nav-item">
+
+                {{-- <li class="nav-item">
                     <a class="d-flex align-items-center text-start mx-3 pb-3" data-bs-toggle="pill" href="{{route('client.bidding', 'all')}}">
                         <h6 class="mt-n1 mb-0">Bidding</h6>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill" href="#tab-3">
+                    <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill" href="{{route('client.bidding', 'on-progress')}}">
                         <h6 class="mt-n1 mb-0">On Progress</h6>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill" href="#tab-3">
+                <li class="nav-item">   
+                    <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill" href="{{route('client.bidding', 'completed')}}">
                         <h6 class="mt-n1 mb-0">Completed</h6>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill" href="#tab-3">
+                    <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill" href="{{route('client.bidding', 'cancelled')}}">
                         <h6 class="mt-n1 mb-0">Cancelled</h6>
                     </a>
-                </li>
+                </li>  --}}
             </ul>
             <div class="tab-content">
                 <div id="tab-1" class="tab-pane fade show p-0 active">
@@ -64,7 +67,7 @@
                                     <span class="text-truncate me-3"><i
                                             class="fas fa-thermometer-quarter me-2"></i>{{$bidding->required_level}}</span>
                                     <span class="text-truncate me-0"><i
-                                            class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                            class="far fa-money-bill-alt text-primary me-2"></i>4$ - 10$</span>
                                     <span class="text">
                                         <p><br>{{$bidding->description}}</p>
                                     </span>

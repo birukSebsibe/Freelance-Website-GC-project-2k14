@@ -20,4 +20,10 @@ class Proposal extends Model
         'experienceDescription',
         'max_payment',
     ];
+    public function freelancer(){
+        return $this->belongsTo(Freelancer::class);
+    }
+    public function job(){
+        return $this->belongsTo(Job::class);
+    }
 }
