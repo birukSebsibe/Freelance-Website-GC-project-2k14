@@ -6,56 +6,66 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Fortify\TwoFactorAuthenticatable;
-use Laravel\Jetstream\HasProfilePhoto;
-use Laravel\Sanctum\HasApiTokens;
+use App\Traits\LockableTrait;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable
 {
-    use HasApiTokens;
-    use HasFactory;
-    use HasProfilePhoto;
-    use Notifiable;
-    use TwoFactorAuthenticatable;
+    use HasFactory, Notifiable;
+    use LockableTrait;
 
     /**
      * The attributes that are mass assignable.
      *
-     * @var string[]
+     * @var array
      */
     protected $fillable = [
         'name',
         'email',
         'password',
+        'user_type',
+        'phone_number',
+        'profile_pic',
+        'country_id',
+
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array
-     */
+    public function complaints(){
+        return $this->hasMany(Complaints::class);
+}
+
+    public function freelancer(){
+        return $this->hasMany(Freelancer::class);
+}
+    public function client(){
+        return $this->hasMany(Client::class);
+}
+    public function proposal(){
+        return $this->hasMany(Proposal::class);
+}
+     public function jobs(){
+        return $this->hasMany(Jobs::class);
+}
+public function feedback(){
+    return $this->hasMany(Feedback::class);
+}
+
+public function notifications(){
+    return $this->hasMany(Notifications::class);
+}
+
+
+
     protected $hidden = [
         'password',
         'remember_token',
-        'two_factor_recovery_codes',
-        'two_factor_secret',
     ];
 
     /**
-     * The attributes that should be cast.
+     * The attributes that should be cast to native types.
      *
      * @var array
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-    ];
-
-    /**
-     * The accessors to append to the model's array form.
-     *
-     * @var array
-     */
-    protected $appends = [
-        'profile_photo_url',
     ];
 }
